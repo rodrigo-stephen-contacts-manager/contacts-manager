@@ -44,6 +44,14 @@ public class ContactIO {
         }
     }
 
+    public static void writeLines(List<String> lines) {
+        try {
+            Files.write(CONTACTSPATH, lines);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     // UPDATE....................................
 //    private static void updateContact(String contactToUpdate) {
 //        List<String> updatedContact = new ArrayList<>();
