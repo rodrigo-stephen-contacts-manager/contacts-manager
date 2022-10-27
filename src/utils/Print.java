@@ -20,6 +20,12 @@ public class Print {
     }
 
     // METHOD TO PRINT ALL CONTACTS -------------------------------->
+
+    /*
+    * TODO:
+    *  need to refactor displayContacts to pull from our contacts variable, not from contacts.txt file
+    * */
+
     public static void displayContacts() {
         System.out.println("Name | Phone number | Email");
         for (String contactInfo : ContactIO.readLines()) {

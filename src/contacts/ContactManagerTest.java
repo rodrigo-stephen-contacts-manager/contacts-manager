@@ -1,6 +1,7 @@
 package contacts;
 
 import utils.ContactIO;
+import utils.Input;
 import utils.Print;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
 public class ContactManagerTest {
 
     public static void main(String[] args) {
+        Input inpt = new Input();
 
         // Test contact
 
@@ -32,6 +34,11 @@ public class ContactManagerTest {
 //
 //        Print.displayContacts();
 
-        ContactList masterList = new ContactList();
+//        ContactList masterList = new ContactList();
+//        masterList.addContact(new Contact("Steve Pflug", 5555560L, "testEmail5@email.com"));
+//        Print.displayContacts();
+//        if(inpt.yesNo("Do you wish to save? Y|N: ")) {
+//            masterList.saveList();
+//        }
     }
 }

@@ -29,6 +29,7 @@ public class ContactList {
     // Methods
     // INITIALIZE LIST------------------------------------------>
     public ContactList() {
+        contacts = new ArrayList<>();
         ArrayList<String> contactStrings = new ArrayList<>();
         contactStrings.addAll(ContactIO.readLines());
         for(String contactString : contactStrings){
@@ -46,7 +47,7 @@ public class ContactList {
 
     // SAVE LIST ------------------------------->
     // TAKING CONTACTS ARRAY AND WRITING IT TO THE CONTACTS.TXT-------------------->
-    private void saveList(){
+    public void saveList(){
         ArrayList<String> contactStrings = new ArrayList<>();
         for(Contact contact : contacts){
            contactStrings.add(convertedToString(contact));
