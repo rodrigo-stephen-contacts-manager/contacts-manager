@@ -44,8 +44,15 @@ public class ContactList {
         return splitContact;
     }
 
-    // Save list
+    // SAVE LIST ------------------------------->
     // TAKING CONTACTS ARRAY AND WRITING IT TO THE CONTACTS.TXT-------------------->
+    private void saveList(){
+        ArrayList<String> contactStrings = new ArrayList<>();
+        for(Contact contact : contacts){
+           contactStrings.add(convertedToString(contact));
+        }
+        ContactIO.writeLines(contactStrings);
+    }
     private String convertedToString(Contact contact){
         String conjoined = (contact.getName() + "%" + contact.getPhoneNumber() + "%" + contact.getEmail());
         return conjoined;
@@ -54,16 +61,18 @@ public class ContactList {
 
 
 
-    // CRUD Methods
-    // Add contact
+    // CRUD METHODS
 
-    // Get all contacts
+    // ADD CONTACT
 
-    // Update contact
+    // GET ALL CONTACTS
 
-    // Delete contact
+    // UPDATE CONTACT
 
-    // Other methods
+    // DELETE CONTACT
+
+    // OTHER METHODS
+
     // Get contact by name
 
     // Check if contact exists by name
