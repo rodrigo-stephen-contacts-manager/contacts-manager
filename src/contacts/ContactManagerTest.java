@@ -26,11 +26,12 @@ public class ContactManagerTest {
 //        Print.displayContacts();
 
         // Test CRUD methods
-        List<String> contactsToAdd = new ArrayList<>();
-        contactsToAdd.add("Mason 5555557 testEmail3@email.com");
-        ContactIO.addLines(contactsToAdd);
+//        List<String> contactsToAdd = new ArrayList<>();
+//        contactsToAdd.add("Mason 5555557 testEmail3@email.com");
+//        ContactIO.addLines(contactsToAdd);
+//
+//        Print.displayContacts();
 
-        Print.displayContacts();
-
+        ContactList masterList = new ContactList();
     }
 }
