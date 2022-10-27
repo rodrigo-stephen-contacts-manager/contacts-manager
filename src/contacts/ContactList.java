@@ -64,17 +64,29 @@ public class ContactList {
     // CRUD METHODS
 
     // ADD CONTACT
+    public void addContact(Contact contact){
+        contacts.add(contact);
+    }
 
     // GET ALL CONTACTS
 
     // UPDATE CONTACT
 
     // DELETE CONTACT
-
+    public void deleteContact(Contact contact){
+        contacts.remove(contact);
+    }
     // OTHER METHODS
 
     // Get contact by name
-
+    public Contact searchContacts(String name){
+        for (Contact contact : contacts){
+            if(name.equals(contact.getName())) {
+               return contact;
+            }
+        }
+        return null;
+    }
     // Check if contact exists by name
 
 }
