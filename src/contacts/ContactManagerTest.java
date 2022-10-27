@@ -4,6 +4,7 @@ import utils.ContactIO;
 import utils.Input;
 import utils.Print;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,13 +37,15 @@ public class ContactManagerTest {
 
         ContactList masterList = new ContactList();
         masterList.addContact(new Contact("Steve Pflug", 5555560L, "testEmail5@email.com"));
-        Print.displayContacts(masterList);
+        Print.displayContacts(masterList.getContacts());
         masterList.addContact(new Contact("Rodrigo Marquez", 5555561L, "testEmail6@email.com"));
-        Print.displayContacts(masterList);
-        Contact contactToDelete = masterList.searchContacts("Rodrigo Marquez");
-        System.out.println("Contact that was searched is: " + contactToDelete.getName());
-        masterList.deleteContact(contactToDelete);
-        Print.displayContacts(masterList);
+        Print.displayContacts(masterList.getContacts());
+        ArrayList<Contact> contactsToDelete = masterList.searchContacts("Rodrigo Marquez");
+        for(Contact contact : contactsToDelete) {
+            System.out.println("Contact that was searched is: " + contact.getName());
+            masterList.deleteContact(contact);
+        }
+        Print.displayContacts(masterList.getContacts());
         if(inpt.yesNo("Do you wish to save? Y|N: ")) {
             masterList.saveList();
         }

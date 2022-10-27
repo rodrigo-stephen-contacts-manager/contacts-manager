@@ -3,6 +3,8 @@ package utils;
 import contacts.Contact;
 import contacts.ContactList;
 
+import java.util.ArrayList;
+
 public class Print {
 
     // Constructors
@@ -24,13 +26,19 @@ public class Print {
 
     // METHOD TO PRINT ALL CONTACTS -------------------------------->
 
-    public static void displayContacts(ContactList contacts) {
+    public static void displayContacts(ArrayList<Contact> contacts) {
         System.out.println("Name                          | Phone number | Email");
         System.out.println("------------------------------+--------------+------------------------------");
-        for (Contact contact : contacts.getContacts()) {
+        for (Contact contact : contacts) {
             System.out.printf("%-30s|  %10s  | %s%n",contact.getName(),contact.getPhoneNumber(),contact.getEmail());
         }
     }
-    // Method to print single contact
+
+    public static void displayContactsWithIndex(ArrayList<Contact> contacts) {
+        for (int i = 0; i < contacts.size(); i++) {
+            Contact contact = contacts.get(i);
+            System.out.printf("%d: %-30s|  %10s  | %s%n", (i + 1), contact.getName(),contact.getPhoneNumber(),contact.getEmail());
+        }
+    }
 
 }

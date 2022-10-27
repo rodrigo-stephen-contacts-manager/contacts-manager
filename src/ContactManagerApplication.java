@@ -36,6 +36,9 @@ public class ContactManagerApplication {
 
         // when user finishes, ask if they want to save
         // and save if the user wants to
+        if(input.yesNo("Do you wish to save the changes you made? Y|N: ")) {
+            newContactList.saveList();
+        }
     }
 
     public static void main(String[] args) {

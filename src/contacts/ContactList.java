@@ -80,13 +80,14 @@ public class ContactList {
     // OTHER METHODS
 
     // Get contact by name
-    public Contact searchContacts(String name){
+    public ArrayList<Contact> searchContacts(String name){
+        ArrayList<Contact> listWithContacts = new ArrayList<>();
         for (Contact contact : contacts){
-            if(name.equals(contact.getName())) {
-               return contact;
+            if(contact.getName().contains(name)) {
+               listWithContacts.add(contact);
             }
         }
-        return null;
+        return listWithContacts;
     }
 
 }
