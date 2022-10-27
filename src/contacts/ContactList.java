@@ -7,8 +7,8 @@ public class ContactList {
     // Instance variables
     private ArrayList<Contact> contacts;
 
-    // Getters and Setters
 
+    // Getters and Setters
     public ArrayList<Contact> getContacts() {
         return contacts;
     }
@@ -18,7 +18,6 @@ public class ContactList {
     }
 
     // Constructors
-
     public ContactList(ArrayList<Contact> contacts) {
         this.contacts = contacts;
     }
@@ -26,9 +25,9 @@ public class ContactList {
     public ContactList() {
     }
 
-
     // Methods
     // Initialize list
+
 
     // Save list
 
