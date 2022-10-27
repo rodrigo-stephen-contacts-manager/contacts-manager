@@ -1,5 +1,8 @@
 package utils;
 
+import contacts.Contact;
+import contacts.ContactList;
+
 public class Print {
 
     // Constructors
@@ -26,10 +29,10 @@ public class Print {
     *  need to refactor displayContacts to pull from our contacts variable, not from contacts.txt file
     * */
 
-    public static void displayContacts() {
+    public static void displayContacts(ContactList contacts) {
         System.out.println("Name | Phone number | Email");
-        for (String contactInfo : ContactIO.readLines()) {
-            System.out.printf("%s%n",contactInfo);
+        for (Contact contact : contacts.getContacts()) {
+            System.out.printf("%s%n,%s%n,%s%n",contact.getName(),contact.getPhoneNumber(),contact.getEmail());
         }
     }
     // Method to print single contact
