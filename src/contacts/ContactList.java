@@ -88,6 +88,5 @@ public class ContactList {
         }
         return null;
     }
-    // Check if contact exists by name
 
 }
