@@ -2,11 +2,9 @@ package utils;
 
 public class Print {
 
-    // Instance variables
-
-    // Getters and Setters
-
     // Constructors
+    public Print() {
+    }
 
     // Methods
     // Method to print application options

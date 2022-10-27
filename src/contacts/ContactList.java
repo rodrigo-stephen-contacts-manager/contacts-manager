@@ -1,12 +1,31 @@
 package contacts;
 
+import java.util.ArrayList;
+
 public class ContactList {
 
     // Instance variables
+    private ArrayList<Contact> contacts;
 
     // Getters and Setters
 
+    public ArrayList<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(ArrayList<Contact> contacts) {
+        this.contacts = contacts;
+    }
+
     // Constructors
+
+    public ContactList(ArrayList<Contact> contacts) {
+        this.contacts = contacts;
+    }
+
+    public ContactList() {
+    }
+
 
     // Methods
     // Initialize list
