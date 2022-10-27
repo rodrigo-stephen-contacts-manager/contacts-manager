@@ -23,7 +23,7 @@ public class Print {
     public static void displayContacts() {
         System.out.println("Name | Phone number | Email");
         for (String contactInfo : ContactIO.readLines()) {
-            System.out.printf("%s",contactInfo);
+            System.out.printf("%s%n",contactInfo);
         }
     }
     // Method to print single contact
