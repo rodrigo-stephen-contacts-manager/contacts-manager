@@ -34,11 +34,17 @@ public class ContactManagerTest {
 //
 //        Print.displayContacts();
 
-//        ContactList masterList = new ContactList();
-//        masterList.addContact(new Contact("Steve Pflug", 5555560L, "testEmail5@email.com"));
-//        Print.displayContacts();
-//        if(inpt.yesNo("Do you wish to save? Y|N: ")) {
-//            masterList.saveList();
-//        }
+        ContactList masterList = new ContactList();
+        masterList.addContact(new Contact("Steve Pflug", 5555560L, "testEmail5@email.com"));
+        Print.displayContacts(masterList);
+        masterList.addContact(new Contact("Rodrigo Marquez", 5555561L, "testEmail6@email.com"));
+        Print.displayContacts(masterList);
+        Contact contactToDelete = masterList.searchContacts("Rodrigo Marquez");
+        System.out.println("Contact that was searched is: " + contactToDelete.getName());
+        masterList.deleteContact(contactToDelete);
+        Print.displayContacts(masterList);
+        if(inpt.yesNo("Do you wish to save? Y|N: ")) {
+            masterList.saveList();
+        }
     }
 }

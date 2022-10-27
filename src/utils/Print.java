@@ -24,15 +24,11 @@ public class Print {
 
     // METHOD TO PRINT ALL CONTACTS -------------------------------->
 
-    /*
-    * TODO:
-    *  need to refactor displayContacts to pull from our contacts variable, not from contacts.txt file
-    * */
-
     public static void displayContacts(ContactList contacts) {
-        System.out.println("Name | Phone number | Email");
+        System.out.println("Name                          | Phone number | Email");
+        System.out.println("------------------------------+--------------+------------------------------");
         for (Contact contact : contacts.getContacts()) {
-            System.out.printf("%s%n,%s%n,%s%n",contact.getName(),contact.getPhoneNumber(),contact.getEmail());
+            System.out.printf("%-30s|  %10s  | %s%n",contact.getName(),contact.getPhoneNumber(),contact.getEmail());
         }
     }
     // Method to print single contact
