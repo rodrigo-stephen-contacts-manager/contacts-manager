@@ -10,11 +10,13 @@ public class userOptionMethods {
         Print.displayContacts(newContactList.getContacts());
     }
     public static ContactList addContact(ContactList newContactList, Input input){
+        System.out.printf("%n------------------------------%nAdding Contact%n------------------------------%n");
         String name = input.getString("Enter a name:");
         Long phoneNumber = input.getPhoneNumber("Enter a phone number:");
         String email = input.getString("Enter an email:");
         Contact contact = new Contact(name,phoneNumber,email);
         newContactList.addContact(contact);
+        System.out.printf("------------------------------%nContact Successfully Added%n------------------------------%n%n");
         return newContactList;
     }
     public static void searchContact(ContactList newContactList, Input input){
