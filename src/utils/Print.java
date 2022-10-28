@@ -20,6 +20,7 @@ public class Print {
                 3. Search a contact by name
                 4. Delete an existing contact
                 5. Exit
+                
                 Enter an option:""");
     }
 
@@ -29,7 +30,7 @@ public class Print {
         System.out.printf("%n             Name             |  Phone number  | Email%n");
         System.out.println("------------------------------+----------------+----------------------------");
         for (Contact contact : contacts) {
-            System.out.printf("%-30s|   %-10s   | %s%n",contact.getName(),contact.getPhoneNumber(),contact.getEmail());
+            System.out.printf("%-30s|  %-12s  | %s%n", contact.getName(), formatPhoneNumber(contact.getPhoneNumber()), contact.getEmail());
         }
         System.out.printf("------------------------------+----------------+----------------------------%n%n");
     }
@@ -38,9 +39,21 @@ public class Print {
         System.out.printf("%n----------------------------------------------------------------------------%n");
         for (int i = 0; i < contacts.size(); i++) {
             Contact contact = contacts.get(i);
-            System.out.printf("%d: %-30s|   %-10s   | %s%n", (i + 1), contact.getName(),contact.getPhoneNumber(),contact.getEmail());
+            System.out.printf("%d: %-30s|  %-12s  | %s%n", (i + 1), contact.getName(), formatPhoneNumber(contact.getPhoneNumber()), contact.getEmail());
         }
         System.out.printf("----------------------------------------------------------------------------%n%n");
+    }
+
+    private static String formatPhoneNumber(long phoneNumber) {
+        String formattedNumber = "";
+        String uglyNumber = Long.toString(phoneNumber);
+        for(int i = 0; i < uglyNumber.length(); i++) {
+            formattedNumber += uglyNumber.charAt(i);
+            if(i == 2 || (i == 5 && uglyNumber.length() > 7)) {
+                formattedNumber += "-";
+            }
+        }
+        return formattedNumber;
     }
 
 }
