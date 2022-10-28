@@ -5,6 +5,8 @@ import utils.Print;
 
 public class ContactManagerApplication {
 
+    // METHOD THAT INSTANTIATES INPUT AND CONTACT LIST
+    // ALSO CONTAINS MAIN DO/WHILE LOOP FOR CLI OPTIONS --------------------->
     private static void runApplication() {
         // Initial read of the file to populate the contact list
         Input input = new Input();
@@ -41,6 +43,7 @@ public class ContactManagerApplication {
         }
     }
 
+    // MAIN METHOD --------------------------------------------------------------->
     public static void main(String[] args) {
         runApplication();
     }

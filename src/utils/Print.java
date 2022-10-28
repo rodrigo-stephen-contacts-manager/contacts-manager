@@ -12,7 +12,7 @@ public class Print {
     }
 
     // Methods
-    //METHOD TO PRINT APPLICATION------------------------------------>
+    //METHOD TO PRINT APPLICATION options------------------------------------>
     public static void appOptions(){
         System.out.print("""
                 1. View contacts
@@ -24,7 +24,7 @@ public class Print {
                 Enter an option:""");
     }
 
-    // METHOD TO PRINT ALL CONTACTS -------------------------------->
+    // METHOD TO PRINT LIST OF CONTACTS -------------------------------->
 
     public static void displayContacts(ArrayList<Contact> contacts) {
         System.out.printf("%n             Name             |  Phone number  | Email%n");
@@ -35,6 +35,7 @@ public class Print {
         System.out.printf("------------------------------+----------------+----------------------------%n%n");
     }
 
+    // METHOD TO PRINT LIST OF CONTACTS WITH INDEX NUMBERS --------------->
     public static void displayContactsWithIndex(ArrayList<Contact> contacts) {
         System.out.printf("%n----------------------------------------------------------------------------%n");
         for (int i = 0; i < contacts.size(); i++) {
@@ -44,6 +45,7 @@ public class Print {
         System.out.printf("----------------------------------------------------------------------------%n%n");
     }
 
+    // METHOD TO FORMAT PHONE NUMBER BY ADDING DASHES -------------------->
     private static String formatPhoneNumber(long phoneNumber) {
         String formattedNumber = "";
         String uglyNumber = Long.toString(phoneNumber);
@@ -55,5 +57,4 @@ public class Print {
         }
         return formattedNumber;
     }
-
 }
