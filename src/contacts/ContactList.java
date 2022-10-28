@@ -6,28 +6,23 @@ import java.util.ArrayList;
 
 public class ContactList {
 
-    // Instance variables
+    // INSTANCE VARIABLES ----------------------------------------------------------->
     private ArrayList<Contact> contacts;
 
 
-    // GETTERS AND SETTERS--------------------------------->
+    // GETTERS AND SETTERS----------------------------------------------------------->
     public ArrayList<Contact> getContacts() {
         return contacts;
     }
-
     public void setContacts(ArrayList<Contact> contacts) {
         this.contacts = contacts;
     }
 
-    // Constructors
+    // CONSTRUCTORS ------------------------------------------------------------------->
     public ContactList(ArrayList<Contact> contacts) {
         this.contacts = contacts;
     }
-
-
-
-    // Methods
-    // INITIALIZE LIST------------------------------------------>
+    // DEFAULT CONSTRUCTOR THAT READS CONTACTLIST FROM TXT FILE ----------------------->
     public ContactList() {
         contacts = new ArrayList<>();
         ArrayList<String> contactStrings = new ArrayList<>();
@@ -38,15 +33,18 @@ public class ContactList {
         }
     }
 
-    //METHOD THAT CONVERTS STRING TO CONTACT--------------------->
-    private Contact convertedToContact(String contactString){
-        String[] strSplit = contactString.split("%");
-        Contact splitContact = new Contact(strSplit[0],Long.parseLong(strSplit[1]),strSplit[2]);
-        return splitContact;
+
+    // CRUD METHODS ------------------------------------------------------------------->
+    // ADD CONTACT ....................................................................
+    public void addContact(Contact contact){
+        contacts.add(contact);
+    }
+    // DELETE CONTACT .................................................................
+    public void deleteContact(Contact contact){
+        contacts.remove(contact);
     }
 
-    // SAVE LIST ------------------------------->
-    // TAKING CONTACTS ARRAY AND WRITING IT TO THE CONTACTS.TXT-------------------->
+    // METHOD THAT WRITES CONTENTS OF CONTACTLIST TO CONTACTS.TXT FILE ---------------->
     public void saveList(){
         ArrayList<String> contactStrings = new ArrayList<>();
         for(Contact contact : contacts){
@@ -54,32 +52,8 @@ public class ContactList {
         }
         ContactIO.writeLines(contactStrings);
     }
-    private String convertedToString(Contact contact){
-        String conjoined = (contact.getName() + "%" + contact.getPhoneNumber() + "%" + contact.getEmail());
-        return conjoined;
-    }
 
-
-
-
-    // CRUD METHODS
-
-    // ADD CONTACT
-    public void addContact(Contact contact){
-        contacts.add(contact);
-    }
-
-    // GET ALL CONTACTS
-
-    // UPDATE CONTACT
-
-    // DELETE CONTACT
-    public void deleteContact(Contact contact){
-        contacts.remove(contact);
-    }
-    // OTHER METHODS
-
-    // Get contact by name
+    // METHOD THAT RETURNS LIST OF CONTACTS BY NAME QUERY ----------------------------->
     public ArrayList<Contact> searchContacts(String name){
         ArrayList<Contact> listWithContacts = new ArrayList<>();
         for (Contact contact : contacts){
@@ -89,5 +63,18 @@ public class ContactList {
         }
         return listWithContacts;
     }
+
+    // METHOD THAT CONVERTS STRING TO CONTACT------------------------------------------>
+    private Contact convertedToContact(String contactString){
+        String[] strSplit = contactString.split("%");
+        Contact splitContact = new Contact(strSplit[0],Long.parseLong(strSplit[1]),strSplit[2]);
+        return splitContact;
+    }
+    // METHOD THAT CONVERTS CONTACT TO STRING WITH CORRECT FORMATTING ----------------->
+    private String convertedToString(Contact contact){
+        String conjoined = (contact.getName() + "%" + contact.getPhoneNumber() + "%" + contact.getEmail());
+        return conjoined;
+    }
+
 
 }

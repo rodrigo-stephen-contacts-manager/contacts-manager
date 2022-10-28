@@ -6,9 +6,13 @@ import utils.Print;
 import java.util.ArrayList;
 
 public class userOptionMethods {
+
+    // METHOD TO DISPLAY ALL CONTACTS IN CONTACTLIST --------------------------------->
     public static void viewContacts(ContactList newContactList){
         Print.displayContacts(newContactList.getContacts());
     }
+
+    // METHOD TO ADD A CONTACT TO CONTACTLIST ---------------------------------------->
     public static ContactList addContact(ContactList newContactList, Input input){
         System.out.printf("%n------------------------------%nAdding Contact%n------------------------------%n");
         String name = input.getString("Enter a name:");
@@ -19,18 +23,19 @@ public class userOptionMethods {
         System.out.printf("------------------------------%nContact Successfully Added%n------------------------------%n%n");
         return newContactList;
     }
+
+    // METHOD TO SEARCH FOR CONTACT BY NAME AND DISPLAY LIST OF RESULTS ------------------------------>
     public static void searchContact(ContactList newContactList, Input input){
         ArrayList<Contact> searchedContactList = newContactList.searchContacts(input.getString("Enter a name to search for the contact: "));
         Print.displayContacts(searchedContactList);
     }
+
+    // METHOD TO DELETE CONTACT FROM CONTACTLIST ----------------------------------------------------->
     public static ContactList deleteContact(ContactList newContactList, Input input){
-        // Write a little code to either print all contacts with numbers for user to choose
-        // Delete user choice from list
         ArrayList<Contact> contacts = newContactList.getContacts();
         Print.displayContactsWithIndex(contacts);
         int userChoice = input.getInt(1, contacts.size(), "Enter the number of the contact you wish to delete: ");
         newContactList.deleteContact(contacts.get(userChoice - 1));
         return newContactList;
     }
-
 }
