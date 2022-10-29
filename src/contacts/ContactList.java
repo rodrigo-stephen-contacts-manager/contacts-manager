@@ -53,6 +53,16 @@ public class ContactList {
         ContactIO.writeLines(contactStrings);
     }
 
+    // METHOD THAT CHECKS TO SEE IF CONTACT ALREADY IN LIST --------------------------->
+    public boolean hasContact(String name, Long phoneNumber, String email) {
+        for(Contact contact : contacts) {
+            if(contact.getName().equalsIgnoreCase(name) && contact.getPhoneNumber().equals(phoneNumber) && contact.getEmail().equalsIgnoreCase(email)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // METHOD THAT RETURNS LIST OF CONTACTS BY NAME QUERY ----------------------------->
     public ArrayList<Contact> searchContacts(String name){
         ArrayList<Contact> listWithContacts = new ArrayList<>();
