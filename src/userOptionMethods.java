@@ -18,9 +18,16 @@ public class userOptionMethods {
         String name = input.getString("Enter a name:");
         Long phoneNumber = input.getPhoneNumber("Enter a phone number:");
         String email = input.getString("Enter an email:");
-        Contact contact = new Contact(name,phoneNumber,email);
-        newContactList.addContact(contact);
-        System.out.printf("------------------------------%nContact Successfully Added%n------------------------------%n%n");
+        if(!newContactList.hasContact(name, phoneNumber, email)) {
+            Contact contact = new Contact(name, phoneNumber, email);
+            newContactList.addContact(contact);
+            System.out.printf("------------------------------%nContact Successfully Added%n------------------------------%n%n");
+        } else {
+            if (input.yesNo("Contact already exists. Do you wish to add a different contact? Y|N: ")) {
+                return addContact(newContactList, input);
+            }
+            System.out.printf("%n");
+        }
         return newContactList;
     }
 
