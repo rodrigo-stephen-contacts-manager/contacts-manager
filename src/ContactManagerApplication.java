@@ -10,28 +10,19 @@ public class ContactManagerApplication {
     private static void runApplication() {
         // Initial read of the file to populate the contact list
         Input input = new Input();
-        ContactList newContactList = new ContactList();
+        ContactList contactList = new ContactList();
         int userChoice;
         do {
             Print.appOptions();
-            userChoice = input.getInt(1, 5);
+            userChoice = input.getInt(1, 5, "Enter option: ");
             switch (userChoice) {
-                case 1:
-                    userOptionMethods.viewContacts(newContactList);
-                    break;
-                case 2:
-                    newContactList = userOptionMethods.addContact(newContactList, input);
-                    break;
-                case 3:
-                    userOptionMethods.searchContact(newContactList, input);
-                    break;
-                case 4:
-                    newContactList = userOptionMethods.deleteContact(newContactList, input);
-                    break;
-                default:
-                    break;
+                case 1 -> userOptionMethods.viewContacts(contactList);
+                case 2 -> contactList = userOptionMethods.addContact(contactList, input);
+                case 3 -> userOptionMethods.searchContact(contactList, input);
+                case 4 -> contactList = userOptionMethods.deleteContact(contactList, input);
+                default -> {
+                }
             }
-
 
         } while(!(userChoice == 5));
         // print out options and run the application
@@ -39,7 +30,10 @@ public class ContactManagerApplication {
         // when user finishes, ask if they want to save
         // and save if the user wants to
         if(input.yesNo("Do you wish to save the changes you made? Y|N: ")) {
-            newContactList.saveList();
+            contactList.saveList();
+            System.out.printf("%nAll Changes Saved%n");
+        } else {
+            System.out.printf("%nAll Changes Discarded%n");
         }
     }
 

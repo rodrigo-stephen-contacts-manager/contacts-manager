@@ -67,7 +67,7 @@ public class ContactList {
     public ArrayList<Contact> searchContacts(String name){
         ArrayList<Contact> listWithContacts = new ArrayList<>();
         for (Contact contact : contacts){
-            if(contact.getName().contains(name)) {
+            if(contact.getName().toUpperCase().contains(name.toUpperCase())) {
                listWithContacts.add(contact);
             }
         }

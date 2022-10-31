@@ -15,13 +15,14 @@ public class Print {
     //METHOD TO PRINT APPLICATION options------------------------------------>
     public static void appOptions(){
         System.out.print("""
+                
                 1. View contacts
                 2. Add a new contact
                 3. Search a contact by name
                 4. Delete an existing contact
                 5. Exit
                 
-                Enter an option:""");
+                """);
     }
 
     // METHOD TO PRINT LIST OF CONTACTS -------------------------------->
