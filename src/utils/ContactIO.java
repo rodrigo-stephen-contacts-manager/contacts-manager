@@ -33,17 +33,6 @@ public class ContactIO {
         return contacts;
     }
 
-
-    // ADD....................................................
-    // NEVER USED AS ONLY WRITING TO FILE IS DONE AT THE END WHEN USER SAVES
-//    public static void addLines(List<String> lines) {
-//        try {
-//            Files.write(CONTACTSPATH, lines, StandardOpenOption.APPEND);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
     // WRITE (REPLACE) .......................................
     public static void writeLines(List<String> lines) {
         try {
@@ -52,30 +41,4 @@ public class ContactIO {
             throw new RuntimeException(e);
         }
     }
-
-
-    // UPDATE....................................
-    // FUNCTIONALITY NOT IMPLEMENTED
-//    private static void updateContact(String contactToUpdate) {
-//        List<String> updatedContact = new ArrayList<>();
-//        for (String name : readLines()) {
-//            if (name.equalsIgnoreCase(contactToUpdate)) {
-//                updatedContact.add(name);
-//            }
-//        }
-//        writeLines(updatedContact);
-//    }
-
-
-    // DELETE.................................................................
-    // NEVER USED AS ONLY WRITING TO FILE IS DONE AT THE END WHEN USER SAVES
-//    private static void deleteContact(String contactToDelete) {
-//        List<String> updatedContacts = new ArrayList<>();
-//        for (String name : readLines()) {
-//            if (!name.equalsIgnoreCase(contactToDelete)) {
-//                updatedContacts.add(name);
-//            }
-//        }
-//        addLines(updatedContacts);
-//    }
 }
