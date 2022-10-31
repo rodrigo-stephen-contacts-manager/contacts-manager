@@ -8,7 +8,6 @@ public class ContactManagerApplication {
     // METHOD THAT INSTANTIATES INPUT AND CONTACT LIST
     // ALSO CONTAINS MAIN DO/WHILE LOOP FOR CLI OPTIONS --------------------->
     private static void runApplication() {
-        // Initial read of the file to populate the contact list
         Input input = new Input();
         ContactList contactList = new ContactList();
         int userChoice;
@@ -23,12 +22,7 @@ public class ContactManagerApplication {
                 default -> {
                 }
             }
-
         } while(!(userChoice == 5));
-        // print out options and run the application
-
-        // when user finishes, ask if they want to save
-        // and save if the user wants to
         if(input.yesNo("Do you wish to save the changes you made? Y|N: ")) {
             contactList.saveList();
             System.out.printf("%nAll Changes Saved%n");
